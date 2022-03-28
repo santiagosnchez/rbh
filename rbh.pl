@@ -54,7 +54,8 @@ sub readTabBlast{
 
   my %bestHits = ();
 
-  open(my $fh, "sort -k1,1r -k11,11g -k12,12nr '$infile' | ") or die "ERROR: could not read $infile: $!";
+  # Sort the results by name, then bitscore, then evalue
+  open(my $fh, "sort -k1,1r -k12,12nr -k11,11g '$infile' | ") or die "ERROR: could not read $infile: $!";
 
   while(<$fh>){
     chomp;
