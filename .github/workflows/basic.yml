@@ -1,0 +1,17 @@
+on: 
+  push:
+    branches: [master]
+
+
+name: testing
+
+jobs:
+  testing:
+    name: testing
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: tests
+        run: |
+          perl rbh/t/01_basic.t
+
