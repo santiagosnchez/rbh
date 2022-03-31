@@ -32,9 +32,10 @@ sub main{
   my $hits2 = readTabBlast($$settings{blast2}, $settings);
 
   while(my($query,$hit) = each(%$hits1)){
-    logmsg "$query => $hit";
+    #logmsg "$query => $hit";
+    $$hits2{$hit} //= "";
     if($$hits2{$hit} eq $query){
-      logmsg " AND $hit => $query";
+      #logmsg " AND $hit => $query";
       print join("\t", $query, $hit)."\n";
     }
   }
