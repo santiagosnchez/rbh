@@ -5,10 +5,11 @@ It will find the reciprocal-best single-copy genes between two sets of BLAST out
 
 ## Installation
 
-    git clone https://github.com/santiagosnchez/rbh
-    cd rbh
-    chmod +x rbh.pl
-    sudo cp rbh.pl /usr/local/bin
+    mkdir ~/bin/build
+    cd ~/bin/build
+    git clone https://github.com/lskatz/rbh
+    cd ~/bin
+    ln -v ~/bin/build/rbh/rbh.pl ~/bin/
 
 ## Example
 
