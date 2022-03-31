@@ -22,7 +22,7 @@ subtest 'best blast hits' => sub{
       BAIL_OUT("ERROR: could not find file $f");
     }
   }
-  system("rbh.pl -blast1 $blast1 -blast2 $blast2 -filter 0.05 > $mapfile 2> $logfile");
+  system("perl $thisDir/../rbh.pl -blast1 $blast1 -blast2 $blast2 -filter 0.05 > $mapfile 2> $logfile");
   if($?){
     my $log = `cat $logfile`;
     BAIL_OUT("rbh.pl resulted in an error. Log was:\n$log");
