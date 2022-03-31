@@ -6,6 +6,8 @@ use Data::Dumper;
 use Getopt::Long qw/GetOptions/;
 use File::Basename qw/basename/;
 
+my $VERSION = "0.1";
+
 local $0 = basename $0;
 sub logmsg{print STDERR "$0: @_\n";}
 exit(main());
@@ -41,7 +43,7 @@ sub main{
 }
 
 sub usage{
-  my $usage = "\nUSAGE:\n
+  my $usage = "\nrbh.pl v$VERSION\nUSAGE:\n
   perl rbh.pl -blast1 <blast_output_tab_1> \
               -blast2 <blast_output_tab_2> \
               -filter <e-value>\n\n";
