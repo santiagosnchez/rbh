@@ -15,7 +15,14 @@ $ENV{PATH}="$thisDir/..:$ENV{PATH}";
 subtest 'best blast hits' => sub{
   my $logfile = "$thisDir/map.log";
   my $mapfile = "$thisDir/map.tsv";
-  system("rbh.pl -blast1 blast1.tsv -blast2 blast2.tsv -filter 0.05 > $mapfile 2> $logfile");
+  my $blast1  = "$thisDir/blast1.tsv";
+  my $blast2  = "$thisDir/blast2.tsv";
+  for my $f($blast1, $blast2){
+    if(! -e $f){
+      BAIL_OUT("ERROR: could not find file $f");
+    }
+  }
+  system("rbh.pl -blast1 $blast1 -blast2 $blast2 -filter 0.05 > $mapfile 2> $logfile");
   if($?){
     my $log = `cat $mapfile`;
     BAIL_OUT("rbh.pl resulted in an error. Log was:\n$log");
